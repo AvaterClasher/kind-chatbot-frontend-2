@@ -5,6 +5,7 @@ import { FC } from "react";
 import { ResetChat } from "./ResetChat";
 import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
+import { ChatLoader } from "./ChatLoader";
 
 interface Props {
 	messages: Message[];
@@ -26,6 +27,12 @@ export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
 						<ChatMessage message={message} />
 					</div>
 				))}
+
+				{loading && (
+					<div className="my-1 sm:my-1.5">
+						<ChatLoader />
+					</div>
+				)}
 
 				<div className="mt-4 bottom-[56px] left-0 w-full">
 					<ChatInput onSend={onSend} />
