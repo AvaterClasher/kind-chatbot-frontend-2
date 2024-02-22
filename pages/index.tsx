@@ -34,7 +34,7 @@ export default function Home() {
 		setMessages(updatedMessages);
 		setLoading(true);
 
-		const response = await fetch("http://127.0.0.1:8000/chat", {
+		const response = await fetch("https://af1f-103-106-200-60.ngrok-free.app/chat", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
