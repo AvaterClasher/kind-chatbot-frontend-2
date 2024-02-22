@@ -7,11 +7,17 @@ import { Navbar } from "@/components/Layout/Navbar";
 import { Footer } from "@/components/Layout/Footer";
 import { Chat } from "@/components/Chat/Chat";
 import { Message } from "@/types";
-import { FC, useState } from "react";
+import { FC, useState,useRef, useEffect} from "react";
 
 export default function Home() {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
 	const handleReset = () => {
 		setMessages([
@@ -21,6 +27,54 @@ export default function Home() {
 			},
 		]);
 	};
+
+  const handleSend = async (message: Message) => {
+    const updatedMessages = [...messages, message];
+
+    setMessages(updatedMessages);
+    setLoading(true);
+
+    // const response = await fetch("http://127.0.0.1:8000/chat", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     user_message: message.content
+    //   })
+    // });
+
+    // if (!response.ok) {
+    //   setLoading(false);
+    //   throw new Error(response.statusText);
+    // }
+
+    // const data = await response.json();
+
+    // setLoading(false);
+
+    // setMessages((messages) => [
+    //   ...messages,
+    //   {
+    //     role: "assistant",
+    //     content: data.chatbot_response
+    //   }
+    // ]);
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  useEffect(() => {
+    setMessages([
+      {
+        role: "assistant",
+        content: `Hi there! I'm Kindbot, an AI assistant.`
+      }
+    ]);
+  }, []);
+
 
 	return (
 		<>
@@ -41,8 +95,10 @@ export default function Home() {
 							<Chat
 								messages={messages}
 								loading={loading}
+								onSend={handleSend}
 								onReset={handleReset}
 							/>
+              <div ref={messagesEndRef} />
 						</div>
 					</div>
 					<Footer />
