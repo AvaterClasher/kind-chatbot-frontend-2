@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GeistSans } from "geist/font/sans";
 import Head from "next/head";
 import { Navbar } from "@/components/Layout/Navbar";
+import { Footer } from "@/components/Layout/Footer";
 
 export default function Home() {
 	return (
@@ -18,6 +19,7 @@ export default function Home() {
 			<main className={`${GeistSans.className}`}>
         <div className="flex flex-col h-screen">
           <Navbar/>
+          <Footer/>
         </div>
       </main>;
 		</>
