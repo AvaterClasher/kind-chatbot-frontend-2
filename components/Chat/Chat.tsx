@@ -1,21 +1,32 @@
+/** @format */
+
 import { Message } from "@/types";
 import { FC } from "react";
 import { ResetChat } from "./ResetChat";
+import { ChatMessage } from "./ChatMessage";
 
 interface Props {
-    message: Message[];
-    loading: boolean;
+	messages: Message[];
+	loading: boolean;
+	onReset: () => void;
 }
 
-export const Chat: FC<Props> = ({ message, loading }) => {
-    return (
-        <>
-            <div className="flex flex-row justify-between items-center mb-4">
-                <ResetChat onReset={() => console.log("Reset")} />
-            </div>
-            <div className="mt-4 bottom-[56px] left-0 w-full">
-                Chatinput
-            </div>
-        </>
-    )
-}
+export const Chat: FC<Props> = ({ messages, loading, onReset }) => {
+	return (
+		<>
+			<div className="flex flex-row justify-between items-center mb-4">
+				<ResetChat onReset={onReset} />
+			</div>
+			<div className="flex flex-col rounded-lg px-2 border-neutral-300">
+				{messages.map((message, index) => (
+					<div key={index} className="my-1">
+						<ChatMessage message={message} />
+					</div>
+				))}
+				<div className="mt-4 bottom-[56px] left-0 w-full">
+					Chatinput
+				</div>
+			</div>
+		</>
+	);
+};
