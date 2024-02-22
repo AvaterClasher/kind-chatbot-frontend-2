@@ -21,7 +21,8 @@ export const ChatMessage: FC<Props> = ({ message }) => {
 						: "bg-blue-500 text-white"
 				} rounded-2xl px-3 py-2 max-w-[67%] whitespace-pre-wrap`}
 				style={{ overflowWrap: "anywhere" }}>
-				<div>{message.content}</div> // Display the message content 
+				{/* Display the message content  */}
+				<div>{message.content}</div> 
 			</div>
 		</div>
 	);
