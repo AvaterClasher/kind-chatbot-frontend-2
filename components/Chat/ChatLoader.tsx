@@ -3,6 +3,7 @@ import { FC } from "react";
 
 interface Props {}
 
+// Function for the loading animation (three pulsing dots)
 export const ChatLoader: FC<Props> = () => {
   return (
     <div className="flex flex-col flex-start">

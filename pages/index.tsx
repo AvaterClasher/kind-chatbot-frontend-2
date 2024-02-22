@@ -10,15 +10,17 @@ import { Message } from "@/types";
 import { FC, useState, useRef, useEffect } from "react";
 
 export default function Home() {
-	const [messages, setMessages] = useState<Message[]>([]);
-	const [loading, setLoading] = useState<boolean>(false);
+	const [messages, setMessages] = useState<Message[]>([]); // State variable for the message element
+	const [loading, setLoading] = useState<boolean>(false); // State variable for loading state
 
-	const messagesEndRef = useRef<HTMLDivElement>(null);
+	const messagesEndRef = useRef<HTMLDivElement>(null); // Ref to the last message element
 
+	// Function to scroll to the bottom of the chat list smoothly
 	const scrollToBottom = () => {
 		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
 	};
 
+	// Function to reset the chat conversation to its initial state
 	const handleReset = () => {
 		setMessages([
 			{
@@ -28,22 +30,27 @@ export default function Home() {
 		]);
 	};
 
+	// Function to send a new message from the user to the chatbot
 	const handleSend = async (message: Message) => {
-		const updatedMessages = [...messages, message];
+		const updatedMessages = [...messages, message]; // Update messages with the new message
 
-		setMessages(updatedMessages);
-		setLoading(true);
+		setMessages(updatedMessages); // Update state with the new messages
+		setLoading(true); // Set loading state to true
 
-		const response = await fetch("https://9edb-103-106-200-60.ngrok-free.app/chat", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				user_message: message.content,
-			}),
-		});
+		const response = await fetch(
+			"https://9edb-103-106-200-60.ngrok-free.app/chat",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					user_message: message.content,
+				}),
+			}
+		);
 
+		// Handle potential errors from the API call
 		if (!response.ok) {
 			setLoading(false);
 			throw new Error(response.statusText);
@@ -51,9 +58,10 @@ export default function Home() {
 
 		const data = await response.json();
 
-		setLoading(false);
+		setLoading(false); // Set loading state to false after receiving response
 
 		setMessages((messages) => [
+			// Update messages with the response from the chatbot
 			...messages,
 			{
 				role: "assistant",
@@ -62,10 +70,12 @@ export default function Home() {
 		]);
 	};
 
+	// Effect hook to scroll to the bottom after new messages are received
 	useEffect(() => {
 		scrollToBottom();
 	}, [messages]);
 
+	// Effect hook to initialize the chat with a welcome message from the assistant
 	useEffect(() => {
 		setMessages([
 			{
