@@ -25,7 +25,7 @@ export default function Home() {
 		setMessages([
 			{
 				role: "assistant",
-				content: `Hi there! I'm KindBot, an AI assistant.`,
+				content: `Hi there! I'm KindBot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
 			},
 		]);
 	};
@@ -80,7 +80,7 @@ export default function Home() {
 		setMessages([
 			{
 				role: "assistant",
-				content: `Hi there! I'm Kindbot, an AI assistant.`,
+				content: `Hi there! I'm Kindbot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
 			},
 		]);
 	}, []);
