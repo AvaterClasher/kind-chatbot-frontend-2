@@ -38,7 +38,7 @@ export default function Home() {
 		setLoading(true); // Set loading state to true
 
 		const response = await fetch(
-			"https://9edb-103-106-200-60.ngrok-free.app/chat",
+			"https://kindbot-backend.shuttleapp.rs/chat",
 			{
 				method: "POST",
 				headers: {
