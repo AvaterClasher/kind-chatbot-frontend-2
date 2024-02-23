@@ -24,6 +24,8 @@
 
 This app uses my own server made using [Rocket 🚀](https://rocket.rs/) and [Rust 🦀](https://www.rust-lang.org/) you can check it out here [Github](https://github.com/AvaterClasher/kind-chatbot-backend).
 
+The Server cannot be hosted Currently. So please change the line [Number 57](https://github.com/AvaterClasher/kind-chatbot-frontend-2/blob/main/pages/index.tsx#L41) in the `pages/index.tsx` with the appropiate server url endpoint with a `/chat` at the end.
+
 ## Running locally
 
 1. Clone the Github Repo: `git clone https://github.com/AvaterClasher/kind-chatbot-frontend-2.git`
