@@ -18,11 +18,12 @@ export const Chat: FC<Props> = ({ messages, loading, onSend, onReset }) => {
 	return (
 		<>
 			{/* Reset button for clearing the chat conversation */}
-			<div className="flex flex-row justify-between items-center mb-4 sm:mb-8">
-				<ResetChat onReset={onReset} />
-			</div>
+			{/* <div className="flex flex-row justify-between items-center mb-4 sm:mb-8">
+				
+			</div> */}
 
-			<div className="flex flex-col rounded-lg px-2 border-neutral-300 sm:p-4 sm:border">
+			<div className="flex flex-col rounded-lg px-2 border-neutral-30 pt-20 sm:p-4 sm:border">
+				<ResetChat onReset={onReset} />
 				{/* Render each message from the messages array */}
 				{messages.map((message, index) => (
 					<div key={index} className="my-1 sm:my-1.5">

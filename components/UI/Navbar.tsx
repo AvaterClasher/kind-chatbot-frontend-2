@@ -1,18 +1,26 @@
 /** @format */
 
-import { FC } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import OpenBio from "@/public/2kindbot.png";
+import { Button } from "@/components/UI/button";
 
 // Navabar Component
-export const Navbar: FC = () => {
+export default function Navbar() {
 	return (
 		<div className="flex h-[50px] border-b border-neutral-300 py-2 px-2 items-center justify-between sm:h-[60px] sm:px-8">
-			<div className="font-bold text-3xl flex items-center">
-				<a
-					className="ml-2 hover:opacity-50"
-					href="https://soumyadipmoni.vercel.app">
-					KindBot UI
-				</a>
-			</div>
+			<Link className="mr-auto" href="/">
+				<Image
+					src={OpenBio}
+					alt="OpenBio"
+					width={50}
+					height={50}
+					loading="eager"
+				/>
+			</Link>
+			<Link className="ml-auto" href="/chat">
+				<Button>Go to Chat</Button>
+			</Link>
 		</div>
 	);
-};
+}

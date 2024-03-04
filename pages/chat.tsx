@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { GeistSans } from "geist/font/sans";
 import Head from "next/head";
-import { Navbar } from "@/components/UI/Navbar";
+import Navbar from "@/components/UI/Navbar";
 import { Footer } from "@/components/UI/Footer";
 import { Chat } from "@/components/Chat/Chat-Provider";
 import { Message } from "@/types";
@@ -101,7 +101,7 @@ export default function chat_interface() {
 			<main className={`${GeistSans.className}`}>
 				<div className="flex flex-col h-screen">
 					<Navbar />
-					<div className="flex-1 overflow-auto pb-4 sm:px-10 sm:pb-10">
+					<div className="flex-1 overflow-auto pb-4 pt-20 sm:px-10 sm:pb-10">
 						<div className="max-w-[800px] mx-auto mt-4 sm:mt-12">
 							<Chat
 								messages={messages}
