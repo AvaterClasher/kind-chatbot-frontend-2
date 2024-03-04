@@ -1,6 +1,7 @@
 /** @format */
 
 import { FC } from "react";
+import { Button } from "../UI/button";
 
 interface Props {
 	onReset: () => void; // Callback function to reset
@@ -9,11 +10,11 @@ interface Props {
 export const ResetChat: FC<Props> = ({ onReset }) => {
 	return (
 		<div className="flex flex-row items-center">
-			<button
-				className="text-sm text-neutral-900 font-semibold rounded-lg px-4 py-2 bg-neutral-200 hover:bg-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-300 sm:text-base"
+			<Button
+				className="text-sm font-semibold rounded-lg px-2 py-2 bg-neutral-200 hover:bg-neutral-400 mb-8 focus:outline-none focus:ring-1 focus:ring-neutral-300 sm:text-base"
 				onClick={() => onReset()}>
 				Reset
-			</button>
+			</Button>
 		</div>
 	);
 };

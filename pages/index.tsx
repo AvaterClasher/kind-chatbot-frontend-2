@@ -7,10 +7,13 @@ import Kindbot from "@/public/2kindbot.png";
 import { Button } from "@/components/UI/button";
 import { GeistSans } from "geist/font/sans";
 import Navbar from "@/components/UI/Navbar";
+import Background from "@/components/UI/background/background";
+import { RoughNotation } from "react-rough-notation";
 
 export default function Home() {
 	return (
 		<main className={`${GeistSans.className}`}>
+			<Background />
 			<div className="mx-auto min-h-screen w-full flex-col items-center justify-center md:py-4">
 				<Navbar />
 				<div className="flex pt-[130px] w-full flex-col items-center justify-center">
@@ -31,9 +34,17 @@ export default function Home() {
 								with kindness
 							</h1>
 
-							<p className="mt-4 text-lg md:text-xl">
-								Chat with the KindBot for free
-							</p>
+							<RoughNotation
+								type="underline"
+								strokeWidth={3}
+								animationDuration={1500}
+								color="rgb(139 8 9)"
+								animate
+								show>
+								<p className="mt-4 text-lg md:text-xl">
+									Chat with the KindBot for free
+								</p>
+							</RoughNotation>
 
 							<div className="mt-12 flex items-center gap-x-4">
 								<Link href="/chat" passHref>
@@ -43,7 +54,7 @@ export default function Home() {
 								</Link>
 
 								<Link
-									href="https://github.com/AvaterClasher/kindbot-frontned-2"
+									href="https://github.com/AvaterClasher/kindbot-frontend-2"
 									target="_blank"
 									rel="noopener noreferrer"
 									passHref>

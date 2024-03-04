@@ -8,6 +8,7 @@ import { Footer } from "@/components/UI/Footer";
 import { Chat } from "@/components/Chat/Chat-Provider";
 import { Message } from "@/types";
 import { FC, useState, useRef, useEffect } from "react";
+import Background from "@/components/UI/background/background";
 
 export default function chat_interface() {
 	const [messages, setMessages] = useState<Message[]>([]); // State variable for the message element
@@ -25,7 +26,7 @@ export default function chat_interface() {
 		setMessages([
 			{
 				role: "assistant",
-				content: `Hi there! I'm KindBot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
+				content: `Hi there! I'm KindBot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ?")`,
 			},
 		]);
 	};
@@ -82,7 +83,7 @@ export default function chat_interface() {
 		setMessages([
 			{
 				role: "assistant",
-				content: `Hi there! I'm Kindbot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
+				content: `Hi there! I'm KindBot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ?")`,
 			},
 		]);
 	}, []);
@@ -99,6 +100,7 @@ export default function chat_interface() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={`${GeistSans.className}`}>
+				<Background />
 				<div className="flex flex-col h-screen">
 					<Navbar />
 					<div className="flex-1 overflow-auto pb-4 pt-20 sm:px-10 sm:pb-10">
