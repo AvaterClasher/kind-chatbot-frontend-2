@@ -9,10 +9,16 @@ import { GeistSans } from "geist/font/sans";
 import Navbar from "@/components/UI/Navbar";
 import Background from "@/components/UI/background/background";
 import { RoughNotation } from "react-rough-notation";
+import LocalFont from "next/font/local";
+
+const calSans = LocalFont({
+	src: "../public/fonts/CalSans-SemiBold.ttf",
+	variable: "--font-calsans",
+});
 
 export default function Home() {
 	return (
-		<main className={`${GeistSans.className}`}>
+		<main className={`${GeistSans.className} ${calSans.variable}`}>
 			<Background />
 			<div className="mx-auto min-h-screen w-full flex-col items-center justify-center md:py-4">
 				<Navbar />
@@ -22,13 +28,13 @@ export default function Home() {
 							<Image
 								src={Kindbot}
 								alt="Kindbot"
-								width={75}
-								height={75}
+								width={100}
+								height={100}
 								priority
 							/>
-							<h2 className="text-xl md:text-2xl">Kindbot</h2>
+							<h2 className="text-xl md:text-2xl font-cal">Kindbot</h2>
 
-							<h1 className="mt-8 text-3xl md:text-5xl">
+							<h1 className="mt-8 text-3xl md:text-5xl font-cal">
 								Kill 'em
 								<br />
 								with kindness
