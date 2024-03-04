@@ -10,7 +10,7 @@ import { Message } from "@/types";
 import { FC, useState, useRef, useEffect } from "react";
 import Background from "@/components/UI/background/background";
 
-export default function chat_interface() {
+export default function Chat_interface() {
 	const [messages, setMessages] = useState<Message[]>([]); // State variable for the message element
 	const [loading, setLoading] = useState<boolean>(false); // State variable for loading state
 
