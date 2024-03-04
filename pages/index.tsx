@@ -1,120 +1,41 @@
 /** @format */
 
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight, Github } from "lucide-react";
+import Kindbot from "@/public/2kindbot.png";
+import { Button } from "@/components/UI/button";
 import { GeistSans } from "geist/font/sans";
-import Head from "next/head";
-import { Navbar } from "@/components/Layout/Navbar";
-import { Footer } from "@/components/Layout/Footer";
-import { Chat } from "@/components/Chat/Chat";
-import { Message } from "@/types";
-import { FC, useState, useRef, useEffect } from "react";
 
 export default function Home() {
-	const [messages, setMessages] = useState<Message[]>([]); // State variable for the message element
-	const [loading, setLoading] = useState<boolean>(false); // State variable for loading state
-
-	const messagesEndRef = useRef<HTMLDivElement>(null); // Ref to the last message element
-
-	// Function to scroll to the bottom of the chat list smoothly
-	const scrollToBottom = () => {
-		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-	};
-
-	// Function to reset the chat conversation to its initial state
-	const handleReset = () => {
-		setMessages([
-			{
-				role: "assistant",
-				content: `Hi there! I'm KindBot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
-			},
-		]);
-	};
-
-	// Function to send a new message from the user to the chatbot
-	const handleSend = async (message: Message) => {
-		const updatedMessages = [...messages, message]; // Update messages with the new message
-
-		setMessages(updatedMessages); // Update state with the new messages
-		setLoading(true); // Set loading state to true
-
-		const response = await fetch(
-			// Change Me please {Either with a ngrok_domain/chat or with a http://127.0.0.1:8000/chat}
-			// Please add a /chat at the end
-			"https://4bd0-103-161-223-11.ngrok-free.app/chat",
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					user_message: message.content,
-				}),
-			}
-		);
-
-		// Handle potential errors from the API call
-		if (!response.ok) {
-			setLoading(false);
-			throw new Error(response.statusText);
-		}
-
-		const data = await response.json();
-
-		setLoading(false); // Set loading state to false after receiving response
-
-		setMessages((messages) => [
-			// Update messages with the response from the chatbot
-			...messages,
-			{
-				role: "assistant",
-				content: data.chatbot_response,
-			},
-		]);
-	};
-
-	// Effect hook to scroll to the bottom after new messages are received
-	useEffect(() => {
-		scrollToBottom();
-	}, [messages]);
-
-	// Effect hook to initialize the chat with a welcome message from the assistant
-	useEffect(() => {
-		setMessages([
-			{
-				role: "assistant",
-				content: `Hi there! I'm Kindbot, an AI assistant. (" Please try writing Should Kindness Hire Soumyadip Moni ? ")`,
-			},
-		]);
-	}, []);
-
 	return (
-		<>
-			<Head>
-				<title>Kind-Chatbot</title>
-				<meta name="description" content="Kind-Chatbot" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<main className={`${GeistSans.className}`}>
-				<div className="flex flex-col h-screen">
-					<Navbar />
-					<div className="flex-1 overflow-auto pb-4 sm:px-10 sm:pb-10">
-						<div className="max-w-[800px] mx-auto mt-4 sm:mt-12">
-							<Chat
-								messages={messages}
-								loading={loading}
-								onSend={handleSend}
-								onReset={handleReset}
-							/>
-							<div ref={messagesEndRef} />
-						</div>
+		<main className={`${GeistSans.className}`}>
+			<div className="container mx-auto flex min-h-screen w-full flex-col items-center justify-center py-4 md:py-8">
+				<div className="flex w-full max-w-3xl flex-1 flex-col items-center justify-center py-20">
+					<div className="flex h-full w-full flex-col items-center justify-center text-center">
+						<Image
+							src={Kindbot}
+							alt="Kindbot"
+							width={75}
+							height={75}
+							priority
+						/>
+						<h2 className="font-cal text-xl md:text-2xl">
+							Kindbot
+						</h2>
+
+						<h1 className="mt-8 font-cal text-3xl md:text-5xl">
+							Kill 'em
+							<br />
+							with kindness
+						</h1>
+
+						<p className="mt-4 text-lg md:text-xl">
+							Chat with the KindBot for free
+						</p>
 					</div>
-					<Footer />
 				</div>
-			</main>
-		</>
+			</div>
+		</main>
 	);
 }

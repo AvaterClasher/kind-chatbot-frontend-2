@@ -1,7 +1,7 @@
 /** @format */
 
 import { Message } from "@/types";
-import { IconArrowUp } from "@tabler/icons-react";
+import { CornerDownLeft, CornerDownLeftIcon } from "lucide-react";
 import { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -71,7 +71,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
 
 			{/* Send button with Arrow Up icon */}
 			<button onClick={() => handleSend()}>
-				<IconArrowUp className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-pink-500 text-white hover:bg-blue-500" />
+				<CornerDownLeftIcon className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-pink-500 text-white hover:bg-blue-500" />
 			</button>
 		</div>
 	);
