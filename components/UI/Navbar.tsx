@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import OpenBio from "@/public/2kindbot.png";
+import KindBot from "@/public/2kindbot.png";
 import { Button } from "@/components/UI/button";
 
 // Navabar Component
@@ -11,7 +11,7 @@ export default function Navbar() {
 		<div className="flex h-[50px] border-b border-neutral-300 py-2 px-2 items-center justify-between sm:h-[60px] sm:px-8">
 			<Link className="mr-auto" href="/">
 				<Image
-					src={OpenBio}
+					src={KindBot}
 					alt="OpenBio"
 					width={50}
 					height={50}

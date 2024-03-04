@@ -23,11 +23,9 @@ export default function Home() {
 								height={75}
 								priority
 							/>
-							<h2 className="font-cal text-xl md:text-2xl">
-								Kindbot
-							</h2>
+							<h2 className="text-xl md:text-2xl">Kindbot</h2>
 
-							<h1 className="mt-8 font-cal text-3xl md:text-5xl">
+							<h1 className="mt-8 text-3xl md:text-5xl">
 								Kill 'em
 								<br />
 								with kindness
@@ -36,6 +34,41 @@ export default function Home() {
 							<p className="mt-4 text-lg md:text-xl">
 								Chat with the KindBot for free
 							</p>
+
+							<div className="mt-12 flex items-center gap-x-4">
+								<Link href="/chat" passHref>
+									<Button className="min-w-full whitespace-nowrap">
+										Start Chatting
+									</Button>
+								</Link>
+
+								<Link
+									href="https://github.com/AvaterClasher/kindbot-frontned-2"
+									target="_blank"
+									rel="noopener noreferrer"
+									passHref>
+									<Button className="whitespace-nowrap">
+										<Github size={24} className="mr-2" />
+										Star on Github
+									</Button>
+								</Link>
+							</div>
+
+							<Button
+								variant="link"
+								size="sm"
+								asChild
+								className="mt-2 transition-transform ease-in-out active:scale-95">
+								<Link
+									href="https://kindness.ai"
+									target="_blank"
+									rel="noopener noreferrer">
+									Check out the real Kindness team
+									<ChevronRight size={12} className="ml-2" />
+								</Link>
+							</Button>
+
+							<div className="my-12" />
 						</div>
 					</div>
 				</div>
