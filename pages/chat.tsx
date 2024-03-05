@@ -41,7 +41,7 @@ export default function Chat_interface() {
 		const response = await fetch(
 			// Change Me please {Either with a ngrok_domain/chat or with a http://127.0.0.1:8000/chat}
 			// Please add a /chat at the end
-			"https://4bd0-103-161-223-11.ngrok-free.app/chat",
+			"http://127.0.0.1:8000/chat",
 			{
 				method: "POST",
 				headers: {
