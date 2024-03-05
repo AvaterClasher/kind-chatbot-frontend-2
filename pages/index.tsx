@@ -35,7 +35,7 @@ export default function Home() {
 							<h2 className="text-xl md:text-2xl font-cal">Kindbot</h2>
 
 							<h1 className="mt-8 text-3xl md:text-5xl font-cal">
-								Kill 'em
+								Kill &apos;em
 								<br />
 								with kindness
 							</h1>
