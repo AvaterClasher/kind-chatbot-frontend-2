@@ -10,6 +10,8 @@ import Navbar from "@/components/UI/Navbar";
 import Background from "@/components/UI/background/background";
 import { RoughNotation } from "react-rough-notation";
 import LocalFont from "next/font/local";
+import Pricing from "@/components/UI/Pricing";
+import { useEffect } from "react";
 
 const calSans = LocalFont({
 	src: "../public/fonts/CalSans-SemiBold.ttf",
@@ -17,13 +19,19 @@ const calSans = LocalFont({
 });
 
 export default function Home() {
+	useEffect(() => {
+		console.info(
+			`Taking a peek huh? Check out the source code: https://github.com/AvaterClasher/kind-chatbot-frontend-2 \n\n`
+		);
+	}, []);
+
 	return (
 		<main className={`${GeistSans.className} ${calSans.variable}`}>
 			<Background />
-			<div className="mx-auto min-h-screen w-full flex-col items-center justify-center md:py-4">
+			<div className="mx-auto min-h-screen w-full flex-col items-center justify-center ">
 				<Navbar />
 				<div className="flex pt-[130px] w-full flex-col items-center justify-center">
-					<div className="flex w-full max-w-3xl flex-1 flex-col items-center justify-center py-20">
+					<div className="flex w-full max-w-3xl flex-1 flex-col items-center justify-center">
 						<div className="flex h-full w-full flex-col items-center justify-center text-center">
 							<Image
 								src={Kindbot}
@@ -32,7 +40,9 @@ export default function Home() {
 								height={100}
 								priority
 							/>
-							<h2 className="text-xl md:text-2xl font-cal">Kindbot</h2>
+							<h2 className="text-xl md:text-2xl font-cal">
+								Kindbot
+							</h2>
 
 							<h1 className="mt-8 text-3xl md:text-5xl font-cal">
 								Kill &apos;em
@@ -86,6 +96,7 @@ export default function Home() {
 							</Button>
 
 							<div className="my-12" />
+							<Pricing />
 						</div>
 					</div>
 				</div>

@@ -33,7 +33,7 @@ export const PLANS: {
 			{
 				text: "Custom API",
 				tooltip: "Get you own API key",
-				notAvailable: true,
+				notAvailable: false,
 			},
 			{
 				text: "Remove branding",
