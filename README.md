@@ -18,7 +18,7 @@
 -   [Next.js](https://nextjs.org) Page Router
 -   [KindBot-Server](https://github.com/AvaterClasher/kind-chatbot-backend) for the API response
 -   Styling with [Tailwind CSS](https://tailwindcss.com)
--   Icons from [Tabler Icons](https://tabler.io/icons)
+-   Icons from [Lucide Icons](https://lucide.dev/icons/)
 
 ## About the Server
 
